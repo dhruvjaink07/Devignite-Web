@@ -7,6 +7,7 @@ import Register from './components/registerPage';
 import GitHubRepositories from './components/githubRepo';
 import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
+import RepoDetails from './components/RepoDetails';
 function App() {
   
 
@@ -15,10 +16,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/categorySelectionPage' element={<CategorySelectionPage/>}></Route>
+        <Route path='repoDetails' element={<RepoDetails/>}></Route>
         <Route path='/githubRepos' element={<GitHubRepositories/>}></Route>
         <Route path='/home' element={<HomePage/>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/register' element={<Register></Register>}></Route>
+        <Route path='/login' element={<Login/>}></Route>
+        <Route path='/register' element={<Register/>}></Route>
       </Routes>
     </BrowserRouter>
 </>

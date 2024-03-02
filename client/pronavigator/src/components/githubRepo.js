@@ -1,16 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// import process from 'dotenv' 
 
 function GitHubRepositories() {
-    // console.log(process.env.GITHUB_NEXT_API);
-    const accessToken = 'ACCESS_TOKEN_APNA_DAAL' ;
-
-    // Define state to hold the fetched repositories, their languages, and star counts
+    const accessToken = 'ACCESS_TOKEN_DAAL_APNA';
     const [repositories, setRepositories] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
 
     useEffect(() => {
-        // Fetch data from the GitHub API
         axios.get('https://api.github.com/repositories', {
             headers: {
                 Authorization: `Bearer ${accessToken}`
@@ -19,9 +15,7 @@ function GitHubRepositories() {
         .then(async (response) => {
             const fetchedRepositories = response.data;
 
-            // Fetch languages and stars for each repository
             const repositoriesWithData = await Promise.all(fetchedRepositories.map(async repo => {
-                // Fetch languages
                 const languagesResponse = await axios.get(repo.languages_url, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`
@@ -29,7 +23,6 @@ function GitHubRepositories() {
                 });
                 const languages = Object.keys(languagesResponse.data);
 
-                // Fetch star count
                 const starResponse = await axios.get(repo.stargazers_url, {
                     headers: {
                         Authorization: `Bearer ${accessToken}`
@@ -40,7 +33,6 @@ function GitHubRepositories() {
                 return { ...repo, languages, starCount };
             }));
 
-            // Update state with repositories, their languages, and star counts
             setRepositories(repositoriesWithData);
         })
         .catch(error => {
@@ -48,25 +40,56 @@ function GitHubRepositories() {
         });
     }, []);
 
-    return (
-        <div>
-            <h1>GitHub Repositories</h1>
-            <ul>
-                {/* Map through the repositories array and render each repository */}
-                {repositories.map(repository => (
-                    <li key={repository.id}>
-                        <h2>{repository.name}</h2>
-                        <p>Description: {repository.description}</p>
-                        <p>Owner: {repository.owner.login}</p>
-                        {/* Join the array of languages into a string */}
-                        <p>Languages: {repository.languages.join(', ')}</p>
-                        {/* Display star count */}
-                        <p>Stars: {repository.starCount}</p>
-                        {/* Add more details as needed */}
+    const handleSearch = (e) => {
+        setSearchQuery(e.target.value);
+    };
 
-                    </li>
+    const filteredRepositories = repositories.filter(repo => {
+        return repo.name.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    return (
+        <div className="container-fluid mt-3">
+            <div className="row">
+                <div className="col">
+                    <input
+                        type="text"
+                        className="form-control"
+                        placeholder="Search repositories"
+                        value={searchQuery}
+                        onChange={handleSearch}
+                    />
+                </div>
+            </div>
+            <div className="row mt-3">
+                {filteredRepositories.map(repository => (
+                    <div key={repository.id} className="col-md-4 mb-3">
+                        <div className="card">
+                            <div className="card-body">
+                                <h5 className="card-title">{repository.name}</h5>
+                                <h6 className="card-subtitle mb-2 text-muted">Owner: {repository.owner.login}</h6>
+                                <h6 className="card-subtitle mb-2 text-muted">{repository.owner.avatar_url}</h6>
+                                {/* <p className="card-text">Description: {repository.description}</p> */}
+                                <p className="card-text">Languages: {repository.languages ? repository.languages.join(', ') : 'N/A'}</p>
+<p className="card-text">Stars: {repository.starCount}</p>
+                            </div>
+                        </div>
+                    </div>
                 ))}
-            </ul>
+            </div>
+            <style>
+                    {
+                        `.card {
+                            height: 250px; /* Set a fixed height for all cards */
+                            overflow: hidden; /* Hide overflow text */
+                          }
+                          
+                          .card-body {
+                            overflow: hidden;
+                            text-overflow: ellipsis; /* Show ellipsis for overflow text */
+                          }`
+                    }
+            </style>
         </div>
     );
 }

@@ -1,7 +1,7 @@
 // HomePage.js
 import React from 'react';
 import '../styles/HomePage.css';
-import Navbar from './Navbar';
+import Navbar from './Navbar.js';
 import ProjectCard from './ProjectCard.js';
 
 function HomePage() {
