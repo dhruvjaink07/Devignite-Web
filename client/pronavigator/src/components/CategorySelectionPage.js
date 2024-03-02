@@ -1,7 +1,7 @@
 // src/CategorySelectionPage.js
 import React, { useState } from 'react';
 import '../styles/CategorySelectionPage.css';
-
+import Navbar from '../components/Navbar'
 const categories = [
   { id: 1, name: 'Beginner' },
   { id: 2, name: 'Intermediate' },
@@ -69,6 +69,9 @@ const CategorySelectionPage = () => {
   };
 
   return (
+    <>
+          <Navbar links={false}></Navbar>
+
     <div className="category-selection-page">
       <h3>Select Your Experience Level</h3>
       <div className="experience-level-buttons">
@@ -113,6 +116,9 @@ const CategorySelectionPage = () => {
         Next
       </button>
     </div>
+
+    </>
+
   );
 };
 
