@@ -1,69 +1,145 @@
 /* HomePage.css */
-#title{
-  font-size: 85px;
-  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+/* Common styling for both desktop and mobile */
+#title {
+  filter: brightness();
+  font-size: 6vw;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-weight: bolder;
-  padding: 170px 590px 0px 0px;
+  padding: 10vh 50vw 0 2vw;
+  margin-bottom: 0;
 }
+
+#subtitle {
+  padding-right: 70vw;
+  padding-bottom: 6vh;
+  font-size: 4vw;
+  font-weight: bolder;
+} 
 
 .Home-page {
-  background-image: url('/src/assets/blue\ bg2.jpg'); /* Replace with the path to your background image */
+  background-image: url('/src/assets/blue\ bg2.jpg');
   background-size: cover;
   background-position: center;
-  color: rgb(0, 0, 0); /* Text color on top of the background image */
-  padding: 0px; /* Adjust padding as needed */
-}
-.gap{
-  height: 400px;
+  color: rgb(38, 52, 160);
+  font-weight: bolder;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal overflow */
 }
 
-.cards{
-  padding: 30px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  width: 100%;
-  background-color: #ffffff;
+.gap {
+  height: 20vh;
 }
+
+.cards {
+  padding: 2vw;
+  border-top-left-radius: 2vw;
+  border-top-right-radius: 2vw;
+  background-color: #ffffff;
+  margin: 0;
+}
+
 .welcome-section {
   color: #ffffff;
   text-align: center;
-  margin-bottom: 20px; /* Add space between welcome text and projects section */
-}  
-  .navbar {
-    background-color: #0000ff;
-    height: 50px;
-    /* Add additional styling for the navbar */
+  margin-bottom: 2vh;
+}
+
+.navbar {
+  background-color: #0000ff;
+  height: 7vh;
+}
+
+.heading{
+  font-weight: bold;
+}
+
+.projects-section {
+  margin: 2vh 0;
+}
+
+.projects-section h2 {
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+}
+
+/* Styling for desktop */
+.project-card {
+  flex: 0 0 auto;
+  width: 15vw;
+  height: 10vw;
+  background-color: #ffffff;
+  border-radius: 1vw;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin-right: 2vw;
+  margin-bottom: 5vh; /* Add space below each project card */
+}
+.project-title {
+  color: grey;
+  font-size: 25px;
+  padding-top: 110px;
+  padding-left: 45px;
+}
+.projects-scroll {
+  background-color: rgb(237, 237, 237);
+  border-radius: 3vh;
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  padding: 2vh 2vw;
+  margin: 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* Media queries for mobile */
+@media screen and (max-width: 768px) {
+  #title {
+    font-size: 8vw;
+    padding: 5vh 5vw 0 2vw;
   }
-  
-  .welcome-section {
-    text-align: center;
+
+  #subtitle {
+    padding-right: 0;
+    padding-bottom: 2vh;
+    font-size: 4vw;
   }
-  
-  .projects-section {
-    margin: 20px 0;
+
+  .gap {
+    height: 5vh;
   }
-  
-  .projects-section h2 {
-    margin-left: 20px;
+
+  .cards {
+    padding: 5vw;
+    border-top-left-radius: 5vw;
+    border-top-right-radius: 5vw;
   }
-  
+
   .projects-scroll {
+    border-radius: 5px;
+    margin-left: 5px;
+    padding: 20px;
     display: flex;
     overflow-x: auto;
-    padding: 10px 20px;
-    gap: 20px;
+    gap: 1vw; /* Adjust gap between cards as needed */
+    padding: 2vh 0; /* Adjust top and bottom padding as needed */
   }
-  
+
   .project-card {
-    margin: 10px 5px;
-    width: 150px;
-    height: 100px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    /* Add additional styling for project cards */
+    width: 25vw; /* Adjust width as needed */
+    height: 15vw; /* Adjust height as needed */
+    margin-right: 1vw; /* Adjust margin between cards as needed */
+    margin-bottom: 2vh;
   }
-.projects-scroll{
-  border-radius: 20px;
-  background-color: rgb(245, 245, 245);
+
+  .project-title {
+    padding-top: 40px;
+    padding-left: 30px;
+    font-size: 10px; /* Adjust font size as needed */
+  }
 }

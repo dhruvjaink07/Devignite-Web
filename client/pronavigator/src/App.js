@@ -4,10 +4,9 @@ import './App.css';
 import CategorySelectionPage from './components/CategorySelectionPage';
 import Login from './components/loginPage';
 import Register from './components/registerPage';
+import GitHubRepositories from './components/githubRepo';
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
 function App() {
   const [cookie,setCookie] = useCookies(['token'])
   const [user,setUser] = useState('')
@@ -33,16 +32,16 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path='/login' element={<Login />}></Route>
-          <Route path='/register' element={<Register />}></Route>
-          <Route path='/CategorySelectionPage' element={<CategorySelectionPage/>}></Route>
-          {/* Add a route for the home page */}
-          <Route path='/' element={<HomePage/>}></Route>
-        </Routes>
-      </BrowserRouter>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/categorySelectionPage' element={<CategorySelectionPage/>}></Route>
+        <Route path='/githubRepos' element={<GitHubRepositories/>}></Route>
+        <Route path='/home' element={<HomePage/>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+      </Routes>
+    </BrowserRouter>
+</>
   );
 }
 
