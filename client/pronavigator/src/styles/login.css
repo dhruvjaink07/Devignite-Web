@@ -21,3 +21,10 @@ body{
 .margin-vertical{
     margin: 50px 0px;
 }
+.error-message{
+    text-align: center;
+    color: rgba(255, 0, 0, 0.616);
+    margin: 10px 0;
+    padding: 5px 0;
+    background-color: rgba(255, 202, 202, 0.651);
+}
