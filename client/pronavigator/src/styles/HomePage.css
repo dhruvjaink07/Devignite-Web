@@ -1,0 +1,69 @@
+/* HomePage.css */
+#title{
+  font-size: 85px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  padding: 170px 590px 0px 0px;
+}
+
+.Home-page {
+  background-image: url('/src/assets/blue\ bg2.jpg'); /* Replace with the path to your background image */
+  background-size: cover;
+  background-position: center;
+  color: rgb(0, 0, 0); /* Text color on top of the background image */
+  padding: 0px; /* Adjust padding as needed */
+}
+.gap{
+  height: 400px;
+}
+
+.cards{
+  padding: 30px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  background-color: #ffffff;
+}
+.welcome-section {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px; /* Add space between welcome text and projects section */
+}  
+  .navbar {
+    background-color: #0000ff;
+    height: 50px;
+    /* Add additional styling for the navbar */
+  }
+  
+  .welcome-section {
+    text-align: center;
+  }
+  
+  .projects-section {
+    margin: 20px 0;
+  }
+  
+  .projects-section h2 {
+    margin-left: 20px;
+  }
+  
+  .projects-scroll {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 20px;
+    gap: 20px;
+  }
+  
+  .project-card {
+    margin: 10px 5px;
+    width: 150px;
+    height: 100px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    /* Add additional styling for project cards */
+  }
+.projects-scroll{
+  border-radius: 20px;
+  background-color: rgb(245, 245, 245);
+}
