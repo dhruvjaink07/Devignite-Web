@@ -1,0 +1,56 @@
+/* src/styles/CategorySelectionPage.css */
+
+body {
+    background-color: white;
+  }
+  
+  .rounded-rectangle-button {
+    border-radius: 8px; /* You can adjust the border-radius value as needed */
+    /* Add other styling properties as needed */
+  }
+  
+  .category-selection-page {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  h3 {
+    margin-top: 20px;
+  }
+  
+  .category-card,
+  .language-button,
+  .framework-button,
+  .experience-level-button {
+    margin: 5px;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+    border-radius: 8px; /* Added for rounded corners */
+  }
+  
+  .category-card.selected,
+  .language-button.selected,
+  .framework-button.selected,
+  .experience-level-button.selected {
+    background-color: #007bff; /* Green color for selected items */
+    color: white;
+    border-color: #007bff;
+  }
+  
+  .next-button {
+    margin-top: 90px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff; /* Bootstrap's primary color for buttons */
+    color: white;
+    border: none;
+    border-radius: 8px; /* Added for rounded corners */
+  }
+  
+  .next-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
