@@ -12,7 +12,9 @@ body {
   .category-selection-page {
     background-color: white;
     padding: 20px;
-    text-align: center;
+    text-align: left;
+    max-width: 1000px;
+    margin: auto;
   }
   
   h3 {
@@ -24,13 +26,21 @@ body {
   .framework-button,
   .experience-level-button {
     margin: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
-    border-radius: 8px; /* Added for rounded corners */
+    border-radius: 30px; /* Added for rounded corners */
+    transition: 0.2s;
   }
-  
+
+  .language-button:hover,
+  .framework-button:hover,
+  .experience-level-button:hover {
+    border: 1px solid #007bff;
+    background-color: #fff;
+    border-radius: 30px; /* Added for rounded corners */
+  }
   .category-card.selected,
   .language-button.selected,
   .framework-button.selected,
@@ -48,6 +58,8 @@ body {
     color: white;
     border: none;
     border-radius: 8px; /* Added for rounded corners */
+    transition: 0.2s;
+    float: right;
   }
   
   .next-button:hover {
