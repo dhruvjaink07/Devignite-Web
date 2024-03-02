@@ -1,35 +1,16 @@
 // src/App.js
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import './App.css';
 import CategorySelectionPage from './components/CategorySelectionPage';
 import Login from './components/loginPage';
 import Register from './components/registerPage';
-import HomePage from './components/HomePage';
+import HomePage from './components/homePage';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 function App() {
-  const [cookie,setCookie] = useCookies(['token'])
-  const [user,setUser] = useState('')
-
-  useEffect(()=>{
-    const getUser = () =>{
-      fetch('http://127.0.0.1:3001/api/auth/me',{
-        method:'GET',
-        headers:{
-          'Content-Type':'Application/json',
-          'Authorization':`Bearer ${cookie.token}`
-        }
-      }).then(async response=>{
-        const data = await response.json()
-        if(response.status === 200){
-          setUser(data)
-        }
-      })
-      
-    }
-    getUser()
-  },[user])
+  
 
   return (
     <>
@@ -37,7 +18,7 @@ function App() {
         <Routes>
           <Route path='/login' element={<Login />}></Route>
           <Route path='/register' element={<Register />}></Route>
-          <Route path='/CategorySelectionPage' element={<CategorySelectionPage/>}></Route>
+          <Route path='/select-categories' element={<CategorySelectionPage/>}></Route>
           {/* Add a route for the home page */}
           <Route path='/' element={<HomePage/>}></Route>
         </Routes>
