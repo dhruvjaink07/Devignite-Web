@@ -1,12 +1,17 @@
+import React from 'react';
 import './App.css';
-import './components/loginPage.js'
-import CategorySelectionPage from './components/CategorySelectionPage.js';
+import CategorySelectionPage from './components/CategorySelectionPage';
+import Navbar from './components/Navbar';
+
 function App() {
   return (
     <>
-    <CategorySelectionPage/>
+      <CategorySelectionPage />
+      {/* <Login /> */}
+      {/* <Register /> */}
+      {/* <Navbar /> */}
     </>
   );
 }
-export default App;
 
+export default App;
