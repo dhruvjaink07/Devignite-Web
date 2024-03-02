@@ -1,15 +1,18 @@
 import React from 'react';
 import './App.css';
-import CategorySelectionPage from './components/CategorySelectionPage';
-import Navbar from './components/Navbar';
+import Login from './components/loginPage';
+import Register from './components/registerPage';
 
+import { BrowserRouter,Routes,Route } from 'react-router-dom';
 function App() {
   return (
     <>
-      <CategorySelectionPage />
-      {/* <Login /> */}
-      {/* <Register /> */}
-      {/* <Navbar /> */}
+    <BrowserRouter>
+      <Routes>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/register' element={<Register></Register>}></Route>
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }
