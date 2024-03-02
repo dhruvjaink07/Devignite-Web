@@ -28,6 +28,7 @@ function HomePage() {
               {/* Add more ProjectCards as needed */}
             </div>
           </section>
+          <br></br>
         <section className="projects-section">
           <h2 class = "heading">Recent Projects</h2>
           <div className="projects-scroll">
