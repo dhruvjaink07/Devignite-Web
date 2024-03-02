@@ -1,3 +1,23 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,900&display=swap');
+
 body{
-    background-color: #333;
+    background-image: url('https://images.unsplash.com/photo-1506220926022-cc5c12acdb35?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+}
+.card-pad{
+    padding: 15px 25px;
+}
+.input-width{
+    width: 300px;
+}
+.margin-right{
+    margin-left: 120px;
+}
+.forgot{
+    font-size: 14px;
+    color: grey;
+}
+.margin-vertical{
+    margin: 50px 0px;
 }
