@@ -9,6 +9,28 @@ import { BrowserRouter,Routes,Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
 import RepoDetails from './components/RepoDetails';
 function App() {
+  const [cookie,setCookie] = useCookies(['token'])
+  const [user,setUser] = useState('')
+
+  useEffect(()=>{
+    const getUser = () =>{
+      fetch('http://127.0.0.1:3001/api/auth/me',{
+        method:'GET',
+        headers:{
+          'Content-Type':'Application/json',
+          'Authorization':`Bearer ${cookie.token}`
+        }
+      }).then(async response=>{
+        const data = await response.json()
+        if(response.status === 200){
+          setUser(data)
+        }
+      })
+      
+    }
+    getUser()
+  },[user])
+
   return (
     <>
     <BrowserRouter>

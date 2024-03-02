@@ -92,7 +92,7 @@ function Register() {
           </div>
         </form>
         <div className="text-center">
-          <p className='--bs-primary-bg-subtle'>Already have an account? <a href='/login'>Login</a></p>
+          <p className='--bs-primary-bg-subtle'>Already have an account? <a href="/login">Login</a></p>
         </div>
       </div>
     </div>
