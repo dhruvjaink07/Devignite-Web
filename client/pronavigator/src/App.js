@@ -1,5 +1,7 @@
+// src/App.js
 import React from 'react';
 import './App.css';
+import CategorySelectionPage from './components/CategorySelectionPage';
 import Login from './components/loginPage';
 import Register from './components/registerPage';
 import GitHubRepositories from './components/githubRepo';
@@ -14,7 +16,7 @@ function App() {
         <Route path='/register' element={<Register></Register>}></Route>
       </Routes>
     </BrowserRouter>
-    </>
+</>
   );
 }
 
