@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 function GitHubRepositories() {
-    const accessToken = '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';
+    const accessToken = 'ACCESS_TOKEN_DAAL_APNA';
     const [repositories, setRepositories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
