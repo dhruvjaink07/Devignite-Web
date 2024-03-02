@@ -30,6 +30,7 @@ function Navbar() {
           .navbar-nav .nav-link.active,
           .navbar-nav .nav-link:focus,
           .navbar-nav .nav-link:hover {
+            transition:0.2s;
             color: blue; /* Change to your desired color */
           }
         `}
