@@ -8,7 +8,7 @@ import GitHubRepositories from './components/githubRepo';
 import RepoDetails from './components/RepoDetails';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomePage from './components/HomePage';
-import UserProfileWithAvatarPicker from './components/userProfileWithAvatar';
+import UserProfileWithAvatarPicker from './components/UserProfileWithAvatar.js';
 
 function App() {
   // Sample user data
