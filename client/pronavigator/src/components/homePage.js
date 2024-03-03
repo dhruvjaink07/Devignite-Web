@@ -34,7 +34,7 @@ function HomePage() {
   },[])
 
 
-  const accessToken = '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';
+  const accessToken = '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';
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
