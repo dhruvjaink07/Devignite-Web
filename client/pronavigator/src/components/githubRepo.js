@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 function GitHubRepositories() {
-    const accessToken = 'ACCESS_TOKEN_DAAL_APNA';
+    const accessToken = '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';
     const [repositories, setRepositories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -47,7 +48,15 @@ function GitHubRepositories() {
     const filteredRepositories = repositories.filter(repo => {
         return repo.name.toLowerCase().includes(searchQuery.toLowerCase());
     });
-
+    const formatLanguages = (languages) => {
+        if (languages.length > 5) {
+            // Display the first five languages followed by three dots
+            return languages.slice(0, 5).join(', ') + '...';
+        } else {
+            return languages.join(', ');
+        }
+    };
+    
     return (
         <div className="container-fluid mt-3">
             <div className="row">
@@ -62,20 +71,22 @@ function GitHubRepositories() {
                 </div>
             </div>
             <div className="row mt-3">
-                {filteredRepositories.map(repository => (
-                    <div key={repository.id} className="col-md-4 mb-3">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{repository.name}</h5>
-                                <h6 className="card-subtitle mb-2 text-muted">Owner: {repository.owner.login}</h6>
-                                <h6 className="card-subtitle mb-2 text-muted">{repository.owner.avatar_url}</h6>
-                                {/* <p className="card-text">Description: {repository.description}</p> */}
-                                <p className="card-text">Languages: {repository.languages ? repository.languages.join(', ') : 'N/A'}</p>
-<p className="card-text">Stars: {repository.starCount}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+
+            {filteredRepositories.map(repository => (
+    <div key={repository.id} className="col-md-4 mb-3">
+        <div className="card">
+            <div className="card-body">
+                <h5 className="card-title">{repository.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Owner: {repository.owner.login}</h6>
+                <p className="card-text">Languages: {repository.languages ? formatLanguages(repository.languages) : 'N/A'}</p>
+                <p className="card-text">Stars: {repository.starCount}</p>
+                <Link to={`/repoDetails/${repository.id}?name=${repository.name}&owner=${repository.owner.login}&avatar_url=${repository.owner.avatar_url}&stars=${repository.starCount}&languages=${repository.languages}&description=${repository.description}&html_url=${repository.html_url}`} className="btn btn-primary">View Details</Link>
+            </div>
+        </div>
+    </div>
+))}
+
+
             </div>
             <style>
                     {
