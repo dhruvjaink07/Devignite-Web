@@ -18,7 +18,9 @@ function UserProfileWithAvatarPicker() {
         'Collaborated on a team project for a major feature implementation.',
         'Mentored junior developers in coding best practices.',
         'Participated in a hackathon and won 2nd place.',
-        'Published a personal coding blog post.',]
+        'Published a personal coding blog post.',],
+        firstname:'john',
+        lastname:'doe'
     });
 
     const handleAvatarChange = (e) => {

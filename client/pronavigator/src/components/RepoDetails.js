@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import Askquestion from './AskQuestion';
 
 function RepoDetails() {
     const location = useLocation();
@@ -35,6 +36,7 @@ function RepoDetails() {
                     {/* Add more details as needed */}
                 </div>
             </div>
+            {/* <Askquestion></Askquestion> */}
         </div>
     );
 }

@@ -1,5 +1,5 @@
 // src/App.js
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import './App.css';
 import CategorySelectionPage from './components/CategorySelectionPage';
 import Login from './components/loginPage';
@@ -7,8 +7,8 @@ import Register from './components/registerPage';
 import GitHubRepositories from './components/githubRepo';
 import RepoDetails from './components/RepoDetails';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomePage from './components/HomePage';
-import UserProfileWithAvatarPicker from './components/UserProfileWithAvatar.js';
+import HomePage from './components/homePage';
+import UserProfileWithAvatarPicker from './components/userProfileWithAvatar';
 
 function App() {
   // Sample user data
@@ -24,9 +24,9 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/categorySelectionPage" element={<CategorySelectionPage />} />
+          <Route path="/select-categories" element={<CategorySelectionPage />} />
           <Route path="/githubRepos" element={<GitHubRepositories />} />
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/userProfileAvatar" element={<UserProfileWithAvatarPicker />} />
