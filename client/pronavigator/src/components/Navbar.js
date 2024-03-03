@@ -23,7 +23,7 @@ function Navbar({links}) {
                   <a className="nav-link" href="#recent">Recent</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">Search</a>
+                  <a className="nav-link" href="/githubRepos">Search</a>
                 </li>
               </ul>
             </div>:''

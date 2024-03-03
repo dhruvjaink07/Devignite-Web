@@ -18,7 +18,7 @@ function Register() {
     const handleSignUp = async (e) => {
         e.preventDefault(); // Prevent the default form submission
     
-        fetch('http://127.0.0.1:5000/api/auth/register', {
+        fetch('http://127.0.0.1:3001/api/auth/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -34,10 +34,9 @@ function Register() {
             const data = await response.json();
             if (response.status === 201) {
                 setCookie('token', data.token, { path: "/" });
-                navigate('/');
+                navigate('/select-categories');
             } else {
                 setError(data.error);
-                console.log(data.error);
             }
         });
     }
