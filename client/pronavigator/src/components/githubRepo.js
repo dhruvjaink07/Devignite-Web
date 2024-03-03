@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function GitHubRepositories() {
-    const accessToken = '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';
+    const accessToken = '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';
     const [repositories, setRepositories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -71,19 +71,22 @@ function GitHubRepositories() {
                 </div>
             </div>
             <div className="row mt-3">
-                {filteredRepositories.map(repository => (
-                    <div key={repository.id} className="col-md-4 mb-3">
-                        <div className="card">
-                            <div className="card-body">
-                                <h5 className="card-title">{repository.name}</h5>
-                                <h6 className="card-subtitle mb-2 text-muted">Owner: {repository.owner.login}</h6>
-                                <p className="card-text">Languages: {repository.languages ? formatLanguages(repository.languages) : 'N/A'}</p>
-                                <p className="card-text">Stars: {repository.starCount}</p>
-                                <Link to={`/repoDetails/${repository.id}`} className="btn btn-primary">View Details</Link>
-                            </div>
-                        </div>
-                    </div>
-                ))}
+
+            {filteredRepositories.map(repository => (
+    <div key={repository.id} className="col-md-4 mb-3">
+        <div className="card">
+            <div className="card-body">
+                <h5 className="card-title">{repository.name}</h5>
+                <h6 className="card-subtitle mb-2 text-muted">Owner: {repository.owner.login}</h6>
+                <p className="card-text">Languages: {repository.languages ? formatLanguages(repository.languages) : 'N/A'}</p>
+                <p className="card-text">Stars: {repository.starCount}</p>
+                <Link to={`/repoDetails/${repository.id}?name=${repository.name}&owner=${repository.owner.login}&avatar_url=${repository.owner.avatar_url}&stars=${repository.starCount}&languages=${repository.languages}&description=${repository.description}`} className="btn btn-primary">View Details</Link>
+            </div>
+        </div>
+    </div>
+))}
+
+
             </div>
             <style>
                     {
