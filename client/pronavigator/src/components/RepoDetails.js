@@ -11,6 +11,7 @@ function RepoDetails() {
     const stars = query.get('stars');
     const languages = query.get('languages');
     const description = query.get('description');
+    const html_url = query.get('html_url');
 
     const imageStyle = {
         borderRadius: '50%',
@@ -30,6 +31,7 @@ function RepoDetails() {
                     <p><strong>Languages:</strong> {languages ? languages.split(',').join(', ') : 'N/A'}</p>
                     <p><strong>Stars:</strong> {stars}</p>
                     <p><strong>Description:</strong> {description || 'No description available.'}</p>
+                    <p>Repo URL: <a href={html_url}>{html_url}</a></p>
                     {/* Add more details as needed */}
                 </div>
             </div>
