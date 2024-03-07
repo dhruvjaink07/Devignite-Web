@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 function GitHubRepositories() {
-    const accessToken = 'APNA Le TOken';
+    const accessToken = process.env.REACT_APP_GITHUB_ACCESS;
     const [repositories, setRepositories] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
