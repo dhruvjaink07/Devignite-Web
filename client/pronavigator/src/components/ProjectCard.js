@@ -2,11 +2,14 @@
 import React from 'react';
 import '../styles/HomePage.css'; // Import your project card styling
 
-function ProjectCard({ title }) {
+function ProjectCard({ repo }) {
+  
+
   return (
     <div className="project-card">
+      <img src={repo?.owner.avatar_url} className='repoimg' alt='...'></img>
       {/* Placeholder for project content */}
-      <h3 className="project-title">{title}</h3>
+      <h6 className="project-title">{repo?.name}</h6>
     </div>
   );
 }

@@ -73,13 +73,15 @@
   border-radius: 1vw;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   margin-right: 2vw;
-  margin-bottom: 5vh; /* Add space below each project card */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 15px 0;
 }
 .project-title {
-  color: grey;
-  font-size: 25px;
-  padding-top: 110px;
-  padding-left: 45px;
+  color: rgb(63, 63, 63);
+  font-size: 1rem;
+
 }
 .projects-scroll {
   background-color: rgb(237, 237, 237);
@@ -95,6 +97,13 @@
 
 .projects-scroll::-webkit-scrollbar {
   display: none;
+}
+
+.repoimg{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  
 }
 
 /* Media queries for mobile */
@@ -134,7 +143,6 @@
     width: 25vw; /* Adjust width as needed */
     height: 15vw; /* Adjust height as needed */
     margin-right: 1vw; /* Adjust margin between cards as needed */
-    margin-bottom: 2vh;
   }
 
   .project-title {

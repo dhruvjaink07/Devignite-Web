@@ -2,6 +2,10 @@
 import React, { useState } from 'react';
 import '../styles/CategorySelectionPage.css';
 import Navbar from '../components/Navbar'
+import {useNavigate} from 'react-router-dom'
+import { useCookies } from 'react-cookie';
+
+
 const categories = [
   { id: 1, name: 'Beginner' },
   { id: 2, name: 'Intermediate' },
@@ -33,6 +37,9 @@ const fields = [
 ];
 
 const CategorySelectionPage = () => {
+
+  const navigate = useNavigate()
+  const [cookie,setCookie] = useCookies(['token'])
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedLanguages, setSelectedLanguages] = useState([]);
   const [selectedFields, setSelectedFields] = useState([]);
@@ -62,7 +69,26 @@ const CategorySelectionPage = () => {
       console.log('Selected category:', selectedCategory.name);
       console.log('Selected languages:', selectedLanguages);
       console.log('Selected fields:', selectedFields);
-      // Perform any other action as needed
+      
+      fetch('http://127.0.0.1:3001/api/user/interests',{
+        method:'POST',
+        headers:{
+          'Content-Type':'application/json',
+          'Authorization':`Bearer ${cookie.token}`
+        },
+        body:JSON.stringify({
+          experience:selectedCategory.name,
+          languages:selectedLanguages,
+          fields:selectedFields
+        })
+      }).then(async response => {
+        if(response.status === 200){
+          navigate('/')
+        }
+        else{
+          console.log('something went wrong')
+        }
+      })
     } else {
       console.log('Please select an experience level before proceeding.');
     }
