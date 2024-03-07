@@ -34,7 +34,7 @@ function HomePage() {
   },[])
 
 
-  const accessToken = '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';
+  const accessToken = process.env.REACT_APP_GITHUB_ACCESS;
   const [repositories, setRepositories] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
 
